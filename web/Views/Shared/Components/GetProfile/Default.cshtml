@@ -1,0 +1,15 @@
+﻿@model GetProfileVM
+@if (Model !=null)
+{ <div class="avatar">
+        <img src="~/Images/Users/@Model.rater.AvatarUrl" alt="">
+    </div>
+    <div class="info">
+        <h1>@Model.rater.FirstName @Model.rater.LastName</h1>
+        <h2>Birth day : @Model.rater.BirthDay.ToShortDateString()</h2>
+        <h2>Email : @Model.rater.Email</h2>
+        <h2>Age : @Model.rater.Age</h2>
+    </div>
+    <div class="opertaion">
+        <h3>Number of product commented : @Model.CommentsCount</h3>
+    </div>
+}

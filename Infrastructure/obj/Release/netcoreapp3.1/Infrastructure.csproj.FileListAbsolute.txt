@@ -1,0 +1,15 @@
+C:\Users\hp\source\repos\RatingProject\Infrastructure\bin\Release\netcoreapp3.1\Infrastructure.deps.json
+C:\Users\hp\source\repos\RatingProject\Infrastructure\bin\Release\netcoreapp3.1\Infrastructure.runtimeconfig.json
+C:\Users\hp\source\repos\RatingProject\Infrastructure\bin\Release\netcoreapp3.1\Infrastructure.runtimeconfig.dev.json
+C:\Users\hp\source\repos\RatingProject\Infrastructure\bin\Release\netcoreapp3.1\Infrastructure.dll
+C:\Users\hp\source\repos\RatingProject\Infrastructure\bin\Release\netcoreapp3.1\Infrastructure.pdb
+C:\Users\hp\source\repos\RatingProject\Infrastructure\bin\Release\netcoreapp3.1\Core.dll
+C:\Users\hp\source\repos\RatingProject\Infrastructure\bin\Release\netcoreapp3.1\Core.pdb
+C:\Users\hp\source\repos\RatingProject\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\RatingProject\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\RatingProject\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.AssemblyInfo.cs
+C:\Users\hp\source\repos\RatingProject\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\RatingProject\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.csproj.CopyComplete
+C:\Users\hp\source\repos\RatingProject\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.dll
+C:\Users\hp\source\repos\RatingProject\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.pdb
+C:\Users\hp\source\repos\RatingProject\Infrastructure\obj\Release\netcoreapp3.1\Infrastructure.genruntimeconfig.cache

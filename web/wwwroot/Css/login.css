@@ -1,0 +1,181 @@
+﻿/* login */
+.login-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.425);
+    z-index: 6;
+}
+
+.ExternalLogins {
+    width: 500px;
+    height: auto;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    flex-direction: column;
+    color: black;
+    font-style: oblique;
+    box-shadow: 5px 5px 5px black;
+    font-size: 20px;
+    right: 0px;
+    top: 5px;
+}
+
+.logExternalLoginsin * {
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.ExternalLogins form {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ExternalLogins h1 {
+    width: 100%;
+    cursor: default;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    text-align: center;
+}
+
+.ExternalLogins button {
+    width: 90%;
+    margin-bottom: 30px;
+    font-size: 20px;
+    border: none;
+}
+
+    .ExternalLogins button:hover {
+        cursor: pointer;
+        filter: brightness(1.4);
+    }
+
+.ExternalLogins .close-log {
+    background-color: rgb(53, 117, 236);
+    width: 50%;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+    .ExternalLogins .close-log:hover {
+        background-color: rgb(108, 155, 243);
+    }
+
+.login {
+    width: 500px;
+    height: auto;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 5px 5px 5px black;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    font-style: oblique;
+    font-size: 20px;
+    right: 0px;
+    top: 5px;
+}
+
+    .login *:not(.email) {
+        margin-bottom: 7px;
+    }
+
+    .login form {
+        width: 80%;
+    }
+
+        .login form input[type=text ],
+        .login form input[type=password ] {
+            width: 100%;
+            font-size: x-large;
+            border: solid 2px rgb(63, 95, 241);
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.61);
+        }
+
+    .login h1 {
+        width: 100%;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+
+    .login small a {
+        text-decoration: none;
+        color: rgb(63, 95, 241);
+    }
+
+    .login .email {
+        width: 100%;
+        display: flex;
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        cursor: pointer;
+        height: 100%;
+        color: #363636;
+    }
+
+        .login .email:hover {
+            transform: scale(1.2);
+            text-shadow: 2px 2px black;
+        }
+
+    .login .controls {
+        margin-top: -20px;
+        display: grid;
+        width: 100%;
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+
+    .login .close-log,
+    .login input[type=submit] {
+        border: solid rgb(63, 95, 241) 2px;
+        border-radius: 5px;
+        padding: 2px;
+        display: inline;
+        font-size: 20px;
+        font-style: normal;
+        height: 35px;
+        position: relative;
+        width: 60px;
+        text-align: center;
+        background-color: transparent;
+        color: rgb(63, 95, 241);
+    }
+
+    .login .close-log {
+        grid-column-end: 5;
+        height: 28px;
+    }
+    .login input[type=password] {
+        margin-bottom: 20px
+    }
+    .login input[type=checkbox] {
+        margin-bottom: 20px
+    }
+    .login input[type=submit] {
+        margin-right: 50%;
+        margin-left: 14%;
+    }
+
+        .login .close-log:hover,
+        .login input[type=submit]:hover {
+            cursor: pointer;
+            background-color: rgb(103 108 255);
+            color: black;
+            border-color: black;
+        }

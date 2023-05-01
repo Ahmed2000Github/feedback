@@ -1,0 +1,105 @@
+﻿@model RaterVM
+@{
+    Layout = "_Layout1";
+    ViewData["Title"] = "Create";
+}
+@section OptionalCSS 
+{
+    <link href="~/Css/Create.css" rel="stylesheet" />
+}
+@section OptionalJS
+{
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script>
+        // input file
+        $('#File').on('change', function () {
+            var file = $('#File').get(0).files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = () => {
+                    $('#avatar').attr('src', reader.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+}
+<div class="container">
+    <div class="title">Create your account</div>
+    <div class="content">
+        <form asp-controller="Account" asp-action="Create" enctype="multipart/form-data" method="post">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">First Name</span><br>
+                    <input type="text" asp-for="FirstName" placeholder="Enter your first name" required>
+                    <span asp-validation-for="FirstName" style="color:red"></span><br>
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span><br>
+                    <input type="text" asp-for="LastName" placeholder="Enter your last name" required>
+                    <span asp-validation-for="LastName" style="color:red"></span><br>
+                </div>
+                <div class="input-box">
+                    <span class="details">Birth day</span><br>
+                    <input type="date" asp-for="BirthDay" placeholder="Enter your birth day" required>
+                    <span asp-validation-for="BirthDay" style="color:red"></span><br>
+                </div>
+                <div class="input-box">
+                    <span class="details">Username</span><br>
+                    <input type="text" asp-for="UserName" placeholder="Enter your username" required>
+                    <span asp-validation-for="UserName" style="color:red"></span><br>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span><br>
+                    <input type="email" asp-for="Email" placeholder="Enter your email" required>
+                    <span asp-validation-for="Email" style="color:red"></span><br>
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span><br>
+                    <input type="text" asp-for="Password" placeholder="Enter your password" required>
+                    <span asp-validation-for="Password" style="color:red"></span><br>
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirm Password</span><br>
+                    <input type="text" asp-for="ConfirmPassword" placeholder="Confirm your password" required>
+                    <span asp-validation-for="ConfirmPassword" style="color:red"></span><br>
+                </div>
+                <div class="input-box">
+                    <label for="File">
+                        <img src="~/Images/Generales/AddImage.png" id="avatar" alt="">
+                    </label><br />
+                    <input asp-for="File" id="File" type="file">
+                    <span asp-validation-for="File" style="color:red"></span><br>
+                </div>
+
+                <div class="input-box">
+                    <input type="radio" name="gender" asp-for="Gender" value="Male" id="dot-1">
+                    <input type="radio" name="gender" asp-for="Gender" value="Female" id="dot-2">
+                    <input type="radio" name="gender" asp-for="Gender" value="null" id="dot-3">
+                    <span class="gender-title">Gender</span>
+                    <div class="category">
+                        <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender">Male</span>
+                        </label><br>
+                        <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender">Female</span>
+                        </label><br>
+                        <label for="dot-3">
+                            <span class="dot three"></span>
+                            <span class="gender">Prefer not to say</span>
+                        </label>
+                    </div>
+                    <span asp-validation-for="Gender" style="color:red"></span><br>
+                </div>
+            </div>
+            <div><div asp-validation-summary="ModelOnly" style="color:red"></div></div>
+            <div class="button">
+                <input type="submit" value="Create">
+            </div>
+        </form>
+    </div>
+    
+</div>

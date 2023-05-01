@@ -1,0 +1,31 @@
+﻿   <!-- footer -->
+<footer>
+    <div class="dif">
+        <div class="logo-footer" id="logo">
+            <a asp-controller="Home" asp-action="Index">
+                <img src="~/Images/Generales/DarkLogo.png" alt="">
+            </a>
+        </div>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quaerat ea quos at culpa dolore reiciendis similique adipisci
+            saepe. Delectus illum doloribus saepe commodi aspernatur
+            repellendus vitae quibusdam necessitatibus nostrum unde.
+        </p>
+
+    </div>
+    <div class="info">
+        <h3>Contact us</h3>
+        <ul>
+            <li>+21293983930</li>
+            <li>example@gmail.com</li>
+            <li>our address ...</li>
+        </ul>
+        <h3><a href="#">About us</a></h3>
+        <h3>all rights reserved&copy;</h3>
+    </div>
+    <div class="comment">
+        @await Component.InvokeAsync("EmailPost")
+    </div>
+</footer>
+<!-- footer -->

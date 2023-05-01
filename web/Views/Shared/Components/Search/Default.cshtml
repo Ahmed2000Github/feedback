@@ -1,0 +1,19 @@
+﻿ 
+<div class="nav-search">
+    <div class="filter">
+        Filter
+        <ul>
+            <li><a asp-controller="Categorie" asp-action="GetLatest">Recent</a></li>
+            <li><a asp-controller="Categorie" asp-action="GetHot">hot</a></li>
+        </ul>
+    </div>
+    <div class="search">
+        <form asp-controller="Product" asp-action="Search" method="post">
+            <input type="text" name="search" id="search" placeholder="search" autocomplete="off">
+            <input type="submit" value="search">
+        </form>
+        <div class="suggetion">
+            <ul></ul>
+        </div>
+    </div>
+</div>

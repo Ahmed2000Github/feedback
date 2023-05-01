@@ -1,0 +1,60 @@
+﻿body {
+}
+.list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-areas: 'item1 item2'
+        'item3 item3';
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: oblique;
+}
+
+    .list .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-area: item1;
+    }
+
+        .list .avatar img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+
+    .list .info {
+        grid-area: item2;
+    }
+
+    .list .opertaion {
+        grid-area: item3;
+    }
+/* media */
+@media (max-width:700px) {
+    form * {
+        font-size: small;
+    }
+
+}
+@media (max-width:670px) {
+    .list .avatar img {
+        width: 1500px;
+        height: 150px;
+    }
+
+}
+
+@media (max-width:500px) {
+    .list .avatar img {
+        width: 200px;
+        height: 200px;
+    }
+    .list {
+        width: 100%;
+        margin-left: 0;
+        padding-top: 45px;
+        grid-template-columns: 100%;
+        grid-template-areas: 'item1' 'item2' 'item3';
+    }
+}

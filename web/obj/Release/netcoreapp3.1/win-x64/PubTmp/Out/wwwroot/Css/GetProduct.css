@@ -1,0 +1,157 @@
+﻿.veiw {
+    width: 100%;
+    /* height: 300px; */
+    display: flex;
+    background-color: rgba(134, 134, 243, 0.637);
+}
+
+ .veiw .img {
+    width: 40%;
+    height: 300px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+     .veiw .img img {
+        width: 100%;
+        height: 100%;
+        /* width: 200px;
+        height: 200px;*/
+        border-radius: 10px;
+    }
+
+ .veiw .info {
+    width: 60%;
+    height: 100%;
+    padding: 10px;
+}
+
+        .veiw .info img {
+            width: 150px;
+            height: 30px;
+            margin-left: 20px;
+            vertical-align: -9px;
+        }
+/* comment part */
+.comment-part {
+    width: 100%;
+}
+
+.comment {
+    width: 100%;
+    margin-top: 100px;
+}
+
+    .comment .comment-header {
+        width: 100%;
+        display: flex;
+        padding-left: 4%;
+    }
+
+        .comment .comment-header img:first-of-type {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .comment .comment-header div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-left: 10px;
+        }
+
+        .comment .comment-header img:last-of-type {
+            width: 150px;
+            height: 30px;
+            margin-top: 10px;
+            position: absolute;
+            right: 10px;
+        }
+
+    .comment p {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+.add-comment {
+    width: 100%;
+}
+
+    .add-comment h1 {
+        text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: xx-larger;
+    }
+
+    .add-comment form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+        .add-comment form > * {
+            margin: 20px;
+        }
+
+        .add-comment form .level {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+            .add-comment form .level div {
+                width: 60%;
+            }
+
+        .add-comment form label {
+            font-size: 20px;
+            font-family: agency fb;
+            font-weight: bold;
+        }
+
+        .add-comment form textarea {
+            background-color: rgba(0, 0, 0, 0.87);
+            color: thistle;
+        }
+
+        .add-comment form input[type='submit'] {
+            background-color: rgb(79, 79, 216);
+            box-shadow: none;
+            border: solid 1px white;
+        }
+
+            .add-comment form input[type='submit']:hover {
+                cursor: pointer;
+                border-color: thistle;
+                background-color: rgb(16, 0, 243);
+            }
+
+        .add-comment form svg path:hover {
+            cursor: pointer;
+        }
+/* media */
+@media (max-width:700px) {
+    .veiw .img img {
+        height: 70%;
+    }
+}
+@media (max-width:500px) {
+    .veiw {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .veiw .info h4 {
+            display: flex;
+            flex-direction: column;
+        }
+
+    .comment .comment-header img:last-of-type {
+        width: 120px;
+    }
+}

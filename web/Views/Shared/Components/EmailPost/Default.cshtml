@@ -1,0 +1,20 @@
+﻿@model Web.ViewModels.EmailVM
+@inject SignInManager<Rater> signInManeger
+<h3>Write your favorite comment </h3>
+@if (signInManeger.IsSignedIn(User))
+{
+    <form asp-controller="Home" asp-action="Send" method="post">
+        <input type="hidden" value="@User.Identity.Name" asp-for="From">
+         
+        <label for="">Your email :</label><br>
+        <input type="" asp-for="From" value=""  required/>
+        <label for="description">Your comment :</label><br>
+        <textarea asp-for="Body" placeholder="enter your comment ..." cols="30" rows="10" required></textarea><br>
+        <input type="submit" id="submit" value="Send">
+    </form>
+} 
+else
+{
+        <div class="f-login click-login" id="login5"> Click here to login</div>
+}
+

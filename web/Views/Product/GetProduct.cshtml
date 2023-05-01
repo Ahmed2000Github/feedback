@@ -1,0 +1,67 @@
+﻿@inject SignInManager<Rater> signInManeger
+@{
+    ViewData["Title"] = ViewBag.ProductName;
+}
+@section OptionalCSS
+{
+    <link href="~/Css/GetProduct.css" rel="stylesheet" />
+    <link href="~/Css/Statistic.css" rel="stylesheet" />
+}
+@section OptionalJS
+{
+    <script>
+        for (let index = 0; index < 5; index++) {
+            $(".cls-1:eq(" + index + ")").on("click", function () {
+                $("#rating").val(index + 1);
+                console.log($("#rating").val())
+                if ($(this).css("fill") == "rgb(0, 0, 255)") {
+                    $('.cls-1').each(function (Index, element) {
+                        $(element).css("fill", "#fff");
+                    });
+                }
+                $('.cls-1').each(function (Index, element) {
+                    if (Index <= index) {
+                        $(element).css("fill", "blue");
+                    }
+                });
+                });
+                $(".cls-1:eq(" + index + ")").on("dblclick", function () {
+                $("#rating").val(0);
+                console.log($("#rating").val())
+                    $('.cls-1').each(function (Index, element) {
+                        $(element).css("fill", "#fff");
+                    });
+            });
+        }
+        $(document).ready(function () {
+            function Gettitle() {
+                var parentWidth = $(".scroll-bar").width();
+                $(".bar").each(function (index, element) {
+                    var elWidth = $(this).width();
+                    var percent = (elWidth / parentWidth) * 100;
+                    $(this).parent().attr("title", Math.round(percent) + "%");
+                });
+            }
+            setTimeout(Gettitle, 2000)
+        });
+    </script>
+}
+@* for product info *@
+<div class="veiw">
+    @await Component.InvokeAsync("GetProductInfo", ViewBag.ProductId)
+</div>
+@* for Statistic *@
+@await Component.InvokeAsync("Statistic", ViewBag.ProductId)
+@* for comments *@
+<div class="comment-part">
+    @await Component.InvokeAsync("GetComments",new { Id = ViewBag.ProductId , number = 1})
+    @* for add comments  *@
+    @if (signInManeger.IsSignedIn(User))
+    {
+        @await Component.InvokeAsync("AddComment")
+    }
+    else
+    {
+        <h2> You must login or Create Account to be able to add a comment for this product !!</h2>
+    }
+</div>

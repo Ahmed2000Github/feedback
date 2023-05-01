@@ -1,0 +1,83 @@
+﻿@model LoginVM
+@using Microsoft.AspNetCore.Html;
+@{
+    Tuple<HtmlString, string> GetMatched(string providerName)
+    {
+        switch (providerName)
+        {
+            case "Google":
+                {
+                    return new Tuple<HtmlString, string>(new HtmlString("<i class='fab fa-google-plus-g'></i>"), "background-color: rgb(234, 67, 53);");
+                }
+            case "Facebook":
+                {
+                    return new Tuple<HtmlString, string>(new HtmlString("<i class='fab fa-facebook'></i>"), "background-color: rgb(24, 119, 242);");
+                }
+            case "Twiter":
+                {
+                    return new Tuple<HtmlString, string>(new HtmlString("<i class='fab fa-twitter'></i>"), "background-color: rgb (29, 161, 242);");
+                }
+            case "Microsoft":
+                {
+                    return new Tuple<HtmlString, string>(new HtmlString("<i class='fab fa-microsoft'></i>"), "background-color: rgb(1, 166, 240);");
+                }
+            case "Vk":
+                {
+                    return new Tuple<HtmlString, string>(new HtmlString("<i class='fab fa-vk'></i>"), "background-color: rgb(76, 117, 163);");
+                }
+            case "Yahoo":
+                {
+                    return new Tuple<HtmlString, string>(new HtmlString("<i class='fab fa-yahoo' _mstvisible='2'></i>"), "background-color: rgb(65, 0, 147);");
+                }
+            default:
+                {
+                    return new Tuple<HtmlString, string>(new HtmlString(" <i class='fas fa-envelope'></i> "), "background-color: rgb(245, 92, 92);");
+                }
+        }
+    }
+}
+<div class="login">
+    <form asp-controller="Account" asp-action="Login" method="post">
+        <h1><i class="fas fa-sign-in-alt"></i> LOGIN</h1>
+        <label for="user"><i class="far fa-user"></i> User Name :</label><br>
+        <input type="text" asp-for="UserName" placeholder="enter the name ..."> <br>
+        <span asp-validation-for="UserName" style="color:red"></span><br>
+        <label for="user"><i class="fas fa-unlock-alt"></i> Password :</label> <br>
+        <input type="password" asp-for="Password" placeholder="enter the password ..."> <br>       
+        <input type="checkbox" name="remeberMe" asp-for="RememberMe" value="" />
+        <label for="remeberMe">Remember me</label>
+        <span asp-validation-for="Password" style="color:red"></span><br>
+        <small><a asp-controller="Account" asp-action="Create">Forgot the password ?</a></small><br>
+        <small><a asp-controller="Account" asp-action="Create">Create your ownce account ?</a></small><br>
+        <div class="email"> Login using an other account</div> <br />
+        <span asp-="Password" style="color:red"></span><br>
+        <div class="controls">
+            <input type="submit" value="Login">
+            <div class="close-log">Close</div>
+        </div>
+
+    </form>
+</div>
+<div class="ExternalLogins" style="display: none;">
+    <h1><i class="fas fa-sign-in-alt"></i> LOGIN</h1>
+    @if (Model.ExternalLogins.Count() == 0)
+    {
+        <button>
+            No account exist for the moment !
+        </button>
+    }
+    else
+    {
+        <form asp-controller="Account" asp-action="ExternalLogin" method="post" asp-route-returnUrl="@Model.ReturnUrl">
+            @foreach (var provider in Model.ExternalLogins)
+            {
+
+                <button type="submit" style="@GetMatched(provider.DisplayName).Item2 border-radius:10px;" name="provider" value="@provider.Name">
+                    @GetMatched(provider.DisplayName).Item1 Login using @provider.DisplayName account
+                </button>
+            }
+        </form>
+    }
+
+    <div class="close-log">Close</div>
+</div>

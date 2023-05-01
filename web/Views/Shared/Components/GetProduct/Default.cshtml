@@ -1,0 +1,32 @@
+﻿@model IList<ProductLevelVM>
+@if (Model.Count() != 0)
+{
+    foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="img">
+                <img src="~/Images/Products/@item.Product.ImageUrl" alt="">
+            </div>
+            <h1>@item.Product.ProductName</h1>
+            <p>@item.Product.Description</p>
+            <div class="rating">
+                @if (item.Max == -1)
+                {
+                    <h1 style="text-align:center">No comment </h1>
+                }
+                else
+                {
+                    RatingEnum level = (RatingEnum)item.Max;
+                    string path = "/Images/Generales/" + level.ToString() + "Start.png";
+                    <img src=@path alt="">
+                }
+
+            </div>
+            <h3><a asp-controller="Product" asp-action="GetProduct" asp-route-id=@item.Product.Id>show more ...</a></h3>
+        </div>
+    }
+}
+else
+{
+<h1>No data found in this categorie</h1>    
+}

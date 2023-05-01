@@ -1,0 +1,108 @@
+﻿/* footer */
+footer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 300px auto auto;
+    grid-gap: 20px;
+}
+
+    footer > div {
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer div h3 {
+        color: black;
+        font-size: 20px;
+    }
+
+    footer .comment * {
+        margin: 5px;
+        width: 90%;
+    }
+
+    footer .comment h3 {
+        text-align: center;
+    }
+
+    footer .comment label {
+        font-style: oblique;
+        color: rgb(6 14 92);
+        font-size: 18px;
+    }
+
+    footer .comment .f-login {
+        cursor: pointer;
+        font-size: large;
+        text-align: center;
+    }
+
+    footer .comment input[name='email'],
+    footer .comment textarea {
+        background-color: rgb(30, 30, 31);
+        color: white;
+    }
+
+        footer .comment input[name='email']:valid,
+        footer .comment textarea:valid {
+            border: solid 2px rgb(0, 128, 32);
+        }
+
+    footer .comment input[name='email'] {
+        height: 20px;
+        border-radius: 5px;
+        border-width: 2px;
+    }
+
+    footer .comment textarea {
+        border-radius: 5px;
+    }
+
+    footer .comment #submit {
+        background: none;
+        height: 30px;
+        border: solid 2px rgb(20, 20, 245);
+        border-radius: 5px;
+        font-size: large;
+        font-style: oblique;
+        color: rgb(9 9 163);
+    }
+
+        footer .comment #submit:hover {
+            cursor: pointer;
+            color: rgb(116, 116, 243);
+            border-color: rgb(116, 116, 243);
+            text-transform: uppercase;
+        }
+
+    footer .info ul li {
+        list-style: none;
+        margin-bottom: 5px;
+        color: black;
+    }
+
+    footer .info h3 a {
+        text-decoration: none;
+        color: rgb(2 11 112);
+    }
+
+    footer .dif {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-gap: 10px;
+    }
+
+        footer .dif div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        footer .dif p {
+            text-align: center;
+            font-style: oblique;
+            color: black;
+        }

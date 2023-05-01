@@ -1,0 +1,70 @@
+﻿@inject SignInManager<Rater> signInManeger
+@model Rater
+@if (signInManeger.IsSignedIn(User))
+{
+    <div class="item" id="logdata">
+        @switch (ViewBag.check)
+        {
+            case 1 :  case 4 :
+                {
+                    <div class="Logout">
+                        <a href="#"><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a>
+                    </div>
+                    <div class="info">
+                        <a asp-controller="Account" asp-action="GetProfile">@Model.FirstName @Model.LastName</a>
+                    </div>
+                    <div class="img">
+                        <a asp-controller="Account" asp-action="GetProfile">
+                            <img src="~/Images/Users/@Model.AvatarUrl" alt="">
+                        </a>
+                    </div>
+                    break;
+                }
+            case 2:
+                {
+                    <div class="info">
+                        <a asp-controller="Account" asp-action="GetProfile">@Model.FirstName @Model.LastName</a>
+                    </div>
+                    <div class="img">
+                        <a asp-controller="Account" asp-action="GetProfile">
+                            <img src="~/Images/Users/@Model.AvatarUrl" alt="">
+                        </a>
+                    </div>
+                    <div class="Logout">
+                        <a asp-controller="Account" asp-action="Logout"><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a>
+                    </div>
+                    break;
+                }
+            case 3:
+                {
+                    <div class="img">
+                        <a asp-controller="Account" asp-action="GetProfile">
+                            <img src="~/Images/Users/@Model.AvatarUrl" alt="">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a asp-controller="Account" asp-action="GetProfile">@Model.FirstName @Model.LastName</a>
+                    </div>
+                    <div class="Logout">
+                        <a asp-controller="Account" asp-action="Logout"><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</a>
+                    </div>
+
+                    break;
+                }
+        }
+    </div>
+}
+else
+{
+        <div class="signup item ">
+            Sign up
+            <ul>
+                @{
+                    string id = "login" + ViewBag.check;
+                }
+                <li class="click-login" id="login"><i class="fas fa-sign-in-alt"></i>&nbsp; Login</li>
+                <li><a asp-controller="Account" asp-action="Create">Create account</a> </li>
+            </ul>
+        </div>
+}
+

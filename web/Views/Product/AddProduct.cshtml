@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Add product ";
+}
+@section OptionalCSS
+{
+    <link href="~/Css/AddProduct .css" rel="stylesheet" />
+}
+@section OptionalJS
+{
+    <script>
+        // input file
+        $('#File').on('change', function () {
+            var file = $('#File').get(0).files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = () => {
+                    $('#avatar').attr('src', reader.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+}
+<div class="container">
+    <div class="title">Add new product</div>
+    <div class="content">
+        @await Component.InvokeAsync("AddProduct")
+    </div>
+</div>

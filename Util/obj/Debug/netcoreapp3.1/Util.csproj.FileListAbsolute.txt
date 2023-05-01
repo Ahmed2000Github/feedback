@@ -1,0 +1,10 @@
+C:\Users\hp\source\repos\RatingProject\Util\bin\Debug\netcoreapp3.1\Util.deps.json
+C:\Users\hp\source\repos\RatingProject\Util\bin\Debug\netcoreapp3.1\Util.dll
+C:\Users\hp\source\repos\RatingProject\Util\bin\Debug\netcoreapp3.1\Util.pdb
+C:\Users\hp\source\repos\RatingProject\Util\obj\Debug\netcoreapp3.1\Util.csproj.AssemblyReference.cache
+C:\Users\hp\source\repos\RatingProject\Util\obj\Debug\netcoreapp3.1\Util.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\source\repos\RatingProject\Util\obj\Debug\netcoreapp3.1\Util.AssemblyInfoInputs.cache
+C:\Users\hp\source\repos\RatingProject\Util\obj\Debug\netcoreapp3.1\Util.AssemblyInfo.cs
+C:\Users\hp\source\repos\RatingProject\Util\obj\Debug\netcoreapp3.1\Util.csproj.CoreCompileInputs.cache
+C:\Users\hp\source\repos\RatingProject\Util\obj\Debug\netcoreapp3.1\Util.dll
+C:\Users\hp\source\repos\RatingProject\Util\obj\Debug\netcoreapp3.1\Util.pdb

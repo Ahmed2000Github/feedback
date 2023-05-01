@@ -1,0 +1,39 @@
+﻿@model ProductGetVM
+<div class="img">
+    @{
+        string path = "/Images/Products/" + @Model.Product.ImageUrl;
+        RatingEnum level;
+        <img src=@path alt="">
+    }
+</div>
+<div class="info">
+    <h1>@Model.Product.ProductName</h1>
+    <h4>
+        max rating :  @if (Model.Max == -1)
+        {
+            <small style="text-align:center">No comment </small>
+        }
+        else
+        {
+            level = (RatingEnum)Model.Max;
+            path = "/Images/Generales/" + level.ToString() + "Start.png";
+            <img src=@path alt="">
+        }
+    </h4>
+    <h4>
+        min rating : @if (Model.Min == -1)
+        {
+            <small style="text-align:center">&nbsp;&nbsp;&nbsp;&nbsp; No comment </small>
+        }
+        else
+        {
+            level = (RatingEnum)Model.Min;
+            path = "/Images/Generales/" + level.ToString() + "Start.png";
+            <img src=@path alt="">
+        }
+    </h4>
+    <p>
+        @Model.Product.Description
+    </p>
+    <a href="@Model.Product.Link" target="_blank">link to buy</a>
+</div>

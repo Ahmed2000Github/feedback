@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<Rater> userManager
+@model RatingVM
+<div class="add-comment">
+    <h1>Add your ownce comment about this product :</h1>
+    <form asp-controller="Product" asp-action="AddComment" method="post">
+        <label for="level">Whate is the level of that product for you?</label>
+        <div class="level">
+            <div>
+                <svg viewBox="0 0 345.78 58.37">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: #fff;
+                                stroke: #000;
+                                stroke-miterlimit: 10;
+                            }
+                        </style>
+                    </defs>
+                    <g id="Layer_2" data-name="Layer 2">
+                        <g id="Layer_1-2" data-name="Layer 1">
+                            <path class="cls-1" d="M45.66,57.15l-13.5-6.93a3.23,3.23,0,0,0-3,0L15.77,57.44A3.25,3.25,0,0,1,11,54.05l2.42-15a3.26,3.26,0,0,0-1-2.87l-11-10.49a3.26,3.26,0,0,1,1.75-5.57l15-2.32A3.28,3.28,0,0,0,20.69,16L27.28,2.34a3.25,3.25,0,0,1,5.83,0L40,15.83a3.25,3.25,0,0,0,2.47,1.76l15,2a3.25,3.25,0,0,1,1.86,5.53L48.55,35.86a3.22,3.22,0,0,0-.9,2.89l2.7,14.93A3.25,3.25,0,0,1,45.66,57.15Z" />
+                            <path class="cls-1" d="M119.66,57.19l-13.5-6.94a3.28,3.28,0,0,0-3,0L89.77,57.47A3.25,3.25,0,0,1,85,54.09l2.42-15a3.28,3.28,0,0,0-1-2.88l-11-10.49a3.25,3.25,0,0,1,1.75-5.56l15-2.33a3.24,3.24,0,0,0,2.43-1.8l6.59-13.67a3.26,3.26,0,0,1,5.84-.06L114,15.86a3.26,3.26,0,0,0,2.47,1.76l15,2a3.26,3.26,0,0,1,1.85,5.54L122.55,35.89a3.27,3.27,0,0,0-.91,2.89l2.71,14.93A3.26,3.26,0,0,1,119.66,57.19Z" />
+                            <path class="cls-1" d="M189.66,57.19l-13.5-6.94a3.28,3.28,0,0,0-3,0l-13.36,7.19A3.25,3.25,0,0,1,155,54.09l2.42-15a3.28,3.28,0,0,0-1-2.88l-11-10.49a3.25,3.25,0,0,1,1.75-5.56l15-2.33a3.24,3.24,0,0,0,2.43-1.8l6.59-13.67a3.26,3.26,0,0,1,5.84-.06L184,15.86a3.26,3.26,0,0,0,2.47,1.76l15,2a3.26,3.26,0,0,1,1.85,5.54L192.55,35.89a3.27,3.27,0,0,0-.91,2.89l2.71,14.93A3.26,3.26,0,0,1,189.66,57.19Z" />
+                            <path class="cls-1" d="M262.66,57.19l-13.5-6.94a3.28,3.28,0,0,0-3,0l-13.36,7.19A3.25,3.25,0,0,1,228,54.09l2.42-15a3.28,3.28,0,0,0-1-2.88l-11-10.49a3.25,3.25,0,0,1,1.75-5.56l15-2.33a3.24,3.24,0,0,0,2.43-1.8l6.59-13.67a3.26,3.26,0,0,1,5.84-.06L257,15.86a3.26,3.26,0,0,0,2.47,1.76l15,2a3.26,3.26,0,0,1,1.85,5.54L265.55,35.89a3.27,3.27,0,0,0-.91,2.89l2.71,14.93A3.26,3.26,0,0,1,262.66,57.19Z" />
+                            <path class="cls-1" d="M330.66,57.19l-13.5-6.94a3.28,3.28,0,0,0-3,0l-13.36,7.19A3.25,3.25,0,0,1,296,54.09l2.42-15a3.28,3.28,0,0,0-1-2.88l-11-10.49a3.25,3.25,0,0,1,1.75-5.56l15-2.33a3.24,3.24,0,0,0,2.43-1.8l6.59-13.67a3.26,3.26,0,0,1,5.84-.06L325,15.86a3.26,3.26,0,0,0,2.47,1.76l15,2a3.26,3.26,0,0,1,1.85,5.54L333.55,35.89a3.27,3.27,0,0,0-.91,2.89l2.71,14.93A3.26,3.26,0,0,1,330.66,57.19Z" />
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <span asp-validation-for="Level" style="color:red"></span><br>
+        </div>
+        <label for="comment">Can you tel me why ? </label>
+        <textarea asp-for="Description" cols="30" rows="10"></textarea>
+        <span asp-validation-for="Description" style="color:red"></span><br>
+        <input type="hidden" id="rating" asp-for="Level" value="0">
+        <input type="hidden" id="rating" asp-for="ProductId" value="@ViewBag.productId">
+        @{
+
+            var user = await userManager.GetUserAsync(User);
+            var userId = user?.Id;
+        }
+        <input type="hidden" id="rating" asp-for="RaterId" value="@userId">
+        <div asp-validation-summary="ModelOnly"></div>
+        <input type="submit" value="Add">
+    </form>
+</div>

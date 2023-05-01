@@ -1,0 +1,106 @@
+﻿@inject SignInManager<Rater> signInManeger
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Css/Footer.css">
+    <link rel="stylesheet" href="~/Css/login.css">
+    <link rel="stylesheet" href="~/Css/Layout1.css">
+    <link rel="stylesheet" href="~/fontawesome/css/all.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Images/Generales/Icon.png" />
+    @RenderSection("OptionalCSS", required: false)
+</head>
+<body>
+    <!-- nav side -->
+    <div class="dash-board">
+        <div class="logo" id="logo">
+            <a asp-controller="Home" asp-action="Index">
+                <img src="~/Images/Generales/DarkLogo.png" alt="">
+            </a>
+        </div>
+        <div class="item home"><span class="home"><a asp-controller="Home" asp-action="Index"><i class="fa fa-home" aria-hidden="true"></i> Home</a></span></div>
+        <div class="item">
+            <span><i class="fa fa-th-list" aria-hidden="true"></i> Categorie</span>
+            <ul>
+                <li><a asp-controller="Categorie" asp-action="Mobiles">Mobiles</a></li>
+                <li><a asp-controller="Categorie" asp-action="Computers">Computers</a></li>
+                <li><a asp-controller="Categorie" asp-action="Others">Others</a></li>
+            </ul>
+        </div>
+        @await Component.InvokeAsync("SignUp", 3)
+
+
+    </div>
+    <!-- nav side -->
+    <!-- navbar min -->
+    <div class="nav-min">
+        <div class="menu"><i class="fas fa-bars"></i><span class="_menu"> Menu</span></div>
+        <div class="logo-min" id="logo">
+            <a asp-controller="Home" asp-action="Index">
+                <img src="~/Images/Generales/DarkLogo.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="nav-side">
+        <div class="inner-nav">
+            <div class="inner-logo" id="logo">
+                <a asp-controller="Home" asp-action="Index">
+                    <img src="~/Images/Generales/DarkLogo.png" alt="">
+                </a>
+            </div>
+            <div class="close"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="item">
+            <a asp-controller="Home" asp-action="Index">
+                <i class="fa fa-home" aria-hidden="true"></i> Home
+            </a>
+        </div>
+        <div class="item">
+            <i class="fa fa-th-list" aria-hidden="true"></i> Categorie
+            <ul>
+                <li><a asp-controller="Categorie" asp-action="Mobiles">Mobiles</a></li>
+                <li><a asp-controller="Categorie" asp-action="Mobiles">Computers</a></li>
+                <li><a asp-controller="Categorie" asp-action="Mobiles">Others</a></li>
+
+            </ul>
+        </div>
+        @await Component.InvokeAsync("SignUp", 1)
+
+    </div>
+    <!-- navbar min -->
+    @* login *@
+    <div class="login-container">
+        @await Component.InvokeAsync("Login")
+    </div>
+    @* login *@
+    <!-- product list -->
+<div class="product-list">
+    @RenderSection("OptionalTitle", required: false)
+    <div class="list">
+        @RenderBody()
+    </div>
+    @if (ViewBag.IsCategory == true)
+    {
+        if (signInManeger.IsSignedIn(User))
+        {
+            <div class="add-product">
+                <a asp-controller="Product" asp-action="AddProduct">@User.Identity.Name Add your ownce Product</a>
+            </div>
+        }
+
+        ViewBag.IsCategory = false;
+    }
+
+    <partial name="Footer" />
+
+</div>
+    <!-- product list -->
+
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Js/Layout1.js"></script>
+    @RenderSection("OptionalJS", required: false)
+</body>
+</html>

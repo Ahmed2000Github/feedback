@@ -1,0 +1,79 @@
+﻿
+@{
+ 
+    Layout = "_Layout";
+    ViewData["Title"] = "Index";
+}
+@section OptionalCSS
+{
+    <link href="~/Css/Index.css" rel="stylesheet" />
+}
+@section OptionalJS
+{
+    <script src="~/Js/Index.js"></script>
+}
+<!-- carousel -->
+<div class="carousel">
+    <div class="slide slide1">
+        <h1>Participation </h1>
+        <p>
+            this is a description of this slide
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
+            esse nesciunt minima necessitatibus repellat ex inventore iusto
+            nobis ipsum ut! Hic maiores esse asperiores minus.
+            Dolorum porro beatae explicabo eius.
+        </p>
+
+        <div>
+            <img src="~/Images/Generales/Untitled-1.gif" alt="imeg">
+        </div>
+    </div>
+    <div class="slide slide2">
+        <h1>test2</h1>
+        <p>
+            this is a description of this slide
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
+            esse nesciunt minima necessitatibus repellat ex inventore iusto
+            nobis ipsum ut! Hic maiores esse asperiores minus.
+            Dolorum porro beatae explicabo eius.
+        </p>
+        <div>
+            <img src="~/Images/Generales/Untitled-1.gif" alt="imeg">
+        </div>
+    </div>
+    <div class="slide slide3">
+        <h1>test3</h1>
+        <p>
+            this is a description of this slide
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
+            esse nesciunt minima necessitatibus repellat ex inventore iusto
+            nobis ipsum ut! Hic maiores esse asperiores minus.
+            Dolorum porro beatae explicabo eius.
+        </p>
+        <div>
+            <img src="~/Images/Generales/Untitled-1.gif" alt="imeg">
+        </div>
+    </div>
+    <div class="slide slide4">
+        <h1>test4</h1>
+        <p>
+            this is a description of this slide
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi
+            esse nesciunt minima necessitatibus repellat ex inventore iusto
+            nobis ipsum ut! Hic maiores esse asperiores minus.
+            Dolorum porro beatae explicabo eius.
+        </p>
+        <div>
+            <img src="~/Images/Generales/Untitled-1.gif" alt="imeg">
+        </div>
+    </div>
+</div>
+<!-- carousel -->
+<div class="tile-pro">
+    the most best product for the moment
+</div>
+<div class="content-prod">
+   
+   @await Component.InvokeAsync("GetProduct", "")
+</div>
+

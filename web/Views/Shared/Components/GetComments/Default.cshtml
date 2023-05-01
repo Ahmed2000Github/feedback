@@ -1,0 +1,24 @@
+﻿@model IList<RatingsVM>
+    @if (Model.Count() != 0)
+    {
+    foreach (var item in Model)
+    {
+    <div class="comment">
+        <div class="comment-header">
+            @{
+            string path = "/Images/Generales/" + item.Rater.AvatarUrl;
+            <img src=@path alt="">
+            }
+            <div>@item.Rater.FirstName @item.Rater.LastName <br> <small>@item.Rating.Date</small></div>
+            @{
+                RatingEnum level = (RatingEnum)item.Rating.Level;
+                path = "/Images/Generales/" + level.ToString() + "Start.png";
+            <img src=@path alt="">
+            }
+        </div>
+        <p>
+            @item.Rating.Description
+        </p>
+    </div>
+    }
+    }

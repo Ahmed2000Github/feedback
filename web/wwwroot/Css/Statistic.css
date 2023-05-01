@@ -1,0 +1,88 @@
+﻿body {
+}
+.statistic {
+    width: 98%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+    .statistic .slide1 {
+        width: 35%;
+    }
+
+        .statistic .slide1 h1 {
+            text-align: center;
+            font-size: 50px;
+            margin: 2px;
+        }
+
+        .statistic .slide1 h3 {
+            text-align: center;
+            font-size: 25px;
+            margin: 0px;
+        }
+
+    .statistic .slide2 {
+        width: 65%;
+        height: 100%;
+    }
+
+        .statistic .slide2 .row {
+            margin: 2%;
+            display: flex;
+            height: 15px;
+        }
+
+            .statistic .slide2 .row .number {
+                width: 5%;
+                font-size: 12px;
+                font-weight: bold;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                text-align: center;
+            }
+
+            .statistic .slide2 .row .scroll-bar {
+                background-color: rgba(59, 61, 63, 0.192);
+                width: 95%;
+                border-radius: 10px;
+                padding: 3px;
+            }
+
+                .statistic .slide2 .row .scroll-bar .bar {
+                    background-color: rgb(0, 26, 255);
+                    width: 30%;
+                    height: 100%;
+                    border-radius: 10px;
+                }
+
+.all-comment {
+    width:100%;
+    display: flex;
+    align-items: center;
+}
+
+    .all-comment h2 {
+        padding: 0;
+        margin: 5px;
+    }
+
+    .all-comment a {
+        margin-top: 5px;
+        font-size: 25px;
+        margin-bottom: 5px;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        margin-left: calc(100% - 200px);
+    }
+
+@media (max-width:800px) {
+    .statistic {
+        width: 97%;
+    }
+
+        .statistic .slide2 .row {
+            margin: 10px;
+        }
+}

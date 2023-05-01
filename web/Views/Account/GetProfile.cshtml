@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "_Layout1";
+    ViewData["Title"] = "Profile";
+}
+@section OptionalCSS
+{
+    <link href="~/Css/Profile.css" rel="stylesheet" />
+}
+ @await Component.InvokeAsync("GetProfile")

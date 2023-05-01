@@ -1,0 +1,40 @@
+﻿@model ProductAddVM
+<form asp-controller="Product" asp-action="AddProduct" method="post" enctype="multipart/form-data">
+    <div class="user-details">
+        <div class="input-box">
+            <span class="details">Product Name</span><br>
+            <input asp-for="ProductName" type="text" placeholder="Enter the product name" required>
+            <span asp-validation-for="ProductName" style="color:red"></span><br>
+        </div>
+        <div class="input-box">
+            <span class="details">Category of product</span><br>
+            <select asp-for="CategorieId" asp-items='@(new SelectList(@ViewBag.Categories,"Id", "Name"))'>
+                <option value="">Select the Category</option>
+            </select>
+            <span asp-validation-for="CategorieId" style="color:red"></span><br>
+        </div>
+        <div class="input-box">
+            <span class="details">Link of product</span><br>
+            <input asp-for="Link" type="text" placeholder="Enter the link" required>
+            <span asp-validation-for="Link" style="color:red"></span><br>
+        </div>
+
+        <div class="input-box">
+            <span class="details">Description</span><br>
+            <textarea asp-for="Description" id="" cols="30" rows="10"></textarea>
+            <span asp-validation-for="Description" style="color:red"></span><br>
+        </div>
+        <div class="input-box">
+            <label for="File">
+                <img src="~/Images/Generales/default.png" id="avatar" alt="">
+            </label> <br />
+            <input asp-for="File" id="File" type="file">
+            <span asp-validation-for="File" style="color:red"></span><br>
+        </div>
+    </div>
+    @Html.ValidationSummary(true, "", new { @style = "color:red" })
+
+    <div class="button">
+        <input type="submit" value="Add">
+    </div>
+</form>

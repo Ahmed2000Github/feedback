@@ -1,0 +1,65 @@
+﻿@model StatisticVM
+
+<div class="all-comment">
+    <h2>All comments </h2>
+    <a href="#" title="Show all"><i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="statistic">
+    <div class="slide1">
+        <h1>@Model.Avg</h1>
+        @{ 
+            string percent = Model.StarAvg + "%";
+        }
+        <style>
+            .statistic .slide1 div {
+                display: flex;
+                background: linear-gradient(to right,rgb(0, 17, 255) @percent,rgba(71, 71, 71, 0.952) @percent);
+            }
+        </style>
+        <div>
+            <svg viewBox="1 1 1190.54 228">
+                <defs>
+                    <style>
+                        .cls-12 {
+                            fill: #fff;
+                            stroke: #fff;
+                            stroke-miterlimit: 10;
+                        }
+                    </style>
+                </defs>
+                <g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-12" d="M1077.11,1.7l28.2,86.8H1196V.65H599.14L627.3,87.34h91.27L644.73,141l28.21,86.8L599.1,174.14l-73.84,53.65,28.2-86.8L479.62,87.34h91.27L599.06.65H1v229H1196V88.89l-73.29,53.26L1151,229l-73.84-53.65L1003.27,229l28.2-86.8L957.64,88.5h91.27ZM194.86,229.63,121,176,47.18,229.63l28.2-86.8L1.54,89.18H92.81L121,2.38l28.2,86.8h91.27l-73.84,53.65Zm239.07-.71-73.84-53.65-73.84,53.65,28.21-86.8L240.62,88.47h91.27l28.2-86.8,28.21,86.8h91.27l-73.84,53.65Zm478,0-73.84-53.65-73.84,53.65,28.21-86.8L718.62,88.42h91.27l28.2-86.8,28.21,86.8h91.27l-73.84,53.65Z" /></g></g>
+            </svg>
+        </div>
+        <h3>@Model.CommentNumber</h3>
+    </div>
+    <div class="slide2">
+        @for (int i = Model.BarAvg.Length - 1; i >= 0; i--)
+        {
+                string AnimationName = "move" + i.ToString();
+                string clas = "bar" + i.ToString();
+                string classSelector = "." + clas;
+                percent = Model.BarAvg[i] + "%";
+        <style>
+            .statistic .slide2 .row .scroll-bar @classSelector {
+                width: @percent;
+                animation: @AnimationName 2S;
+            }
+                @@keyframes  @AnimationName{
+                    from {
+                        width: 0;
+                    }
+
+                    to {
+                        width: @percent;
+                    }
+                }
+        </style>
+            <div class="row">
+                <div class="number">@i</div>
+                <div class="scroll-bar">
+                    <div class="bar @clas "></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

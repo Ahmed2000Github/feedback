@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = "_Layout1";
+    ViewData["Title"] = ViewBag.Category;
+}
+@section OptionalCSS
+{
+    <link href="~/Css/Products.css" rel="stylesheet" />
+    <link href="~/Css/Search.css" rel="stylesheet" />
+}
+@section OptionalJS
+{
+    <script src="~/Js/Search.js"></script>
+    <script>
+        $("#search").keyup(function (e) {
+            if (!isValidKey(e.keyCode)) {
+                e.preventDefault()
+                var text = $("#search").val().replace(new RegExp(e.key, 'g'), "")
+                $("#search").val(text)
+            }
+            var text = $("#search").val();
+            if (text == "") {
+                $(".suggetion").css("display", "none");
+            } else {
+                $(".suggetion").css("display", "block");
+            }
+            // ajax handler
+
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("GetInfo","Product")",
+                data: { name: text },
+                dataType: "json",
+                success: function (response) {
+                    $(".suggetion ul li").remove();
+                    $.each(response, function (index, element) {
+                        var id 
+                        var ProductName
+                        var c =0
+                        $.each(element, function (key, value) {
+                            if (c==0) {
+                                id = value.toString()
+                            }
+                            if ( c == 1) {
+                                ProductName = value.toString()
+                            }
+                            c++
+                        });
+                    var url = "@Url.Action("GetProduct", "Product")" +"/" + id
+                        var text1 = '<li><a href="' + url + '">' + ProductName + '</a></li>';
+            $(".suggetion ul").append(text1);
+                    });
+                    if ($(".suggetion ul").is(':empty')) {
+                        $(".suggetion").css("display", "none");
+                    }
+                },
+                error: function (response, status, error) {
+                    console.log(error.toString())
+                }
+            });
+        });
+        function isValidKey(keyCode) {
+            if ((keyCode >= 65 && keyCode <= 90) ||
+                (keyCode <= 57 && keyCode >= 48) ||
+                keyCode == 54 || keyCode == 52 ||
+                keyCode == 16 || keyCode == 16 || keyCode == 50) {
+                return true
+            }
+            return false
+        }
+    </script>
+}
+@section OptionalTitle
+{
+        <div class="cat-name">@ViewBag.Category</div>
+
+    }
+   @await Component.InvokeAsync("Search") 
+@await Component.InvokeAsync("GetProduct", ViewBag.Category)
+
+

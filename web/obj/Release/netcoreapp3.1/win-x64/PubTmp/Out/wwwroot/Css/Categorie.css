@@ -1,0 +1,52 @@
+﻿.list .card {
+    border-radius: 15px;
+    max-width: 250px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 255, 255, 0.541);
+}
+
+    .list .card .img {
+        width: 100%;
+        height: 150px;
+    }
+
+        .list .card .img img {
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            width: 100%;
+            height: 100%;
+        }
+
+    .list .card .rating {
+        width: 90%;
+        height: 50px;
+    }
+
+        .list .card .rating img {
+            width: 100%;
+            height: 100%;
+        }
+
+    .list .card h1 {
+        text-align: center;
+        font-style: oblique;
+    }
+
+    .list .card h3 {
+        text-align: center;
+        font-style: oblique;
+    }
+
+        .list .card h3 a {
+            text-decoration: none;
+            color: blue;
+        }
+
+    .list .card p {
+        text-align: center;
+        font-style: oblique;
+    }
